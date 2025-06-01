@@ -1,0 +1,64 @@
+#alienSvg {
+    display: inline;
+    width: 5rem;
+    height: 4rem;
+    padding-bottom: 0.2rem;
+    animation: 6s alienUfo linear infinite;
+}
+
+#alienHand {
+    animation: 4s moveHand linear infinite;
+}
+
+#headlights  path {
+    fill: #FFA76C;
+}
+
+#boot {
+    fill: #b2ffff79;
+}
+
+@keyframes alienUfo {
+    0% {
+        transform: translate(0rem, 0rem) rotate(0deg);
+    }
+    25% {
+        transform: translate(-0.6rem, -0.3rem) rotate(-0.2deg);
+    }
+    50% {
+        transform: translate(0rem, -0.6rem);
+    }
+    75% {
+        transform: translate(0.6rem, -0.3rem) rotate(0.2deg);
+    }
+    100% {
+        transform: translate(0rem, 0rem) rotate(0deg);
+    }
+}
+
+@keyframes moveHand {
+    0% {
+        transform: translateX(0rem);
+    }
+    25% {
+        transform: translateX(0.15rem);
+    }
+    50% {
+        transform: translateX(-0.15rem);
+
+    }
+    75% {
+        transform: translateX(0.15rem);
+    }
+
+    100% {
+        transform: translateX(0rem);
+    }
+}
+
+@media (max-width: 600px) {
+    #alienSvg {
+        display: none;
+    }
+}
+

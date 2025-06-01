@@ -1,0 +1,54 @@
+{
+    "projects": [
+        {
+            "name": "Paddle wars",
+            "category": ["Game Dev", "Web Dev", "Devops"],
+            "url": "https://github.com/AchabNassim/ft_transcendence.git",
+            "technologies": ["Docker", "Nginx", "Html", "Css", "Javascript", "Django", "Postgresql", "Redis", "web_component", "Jwt"],
+            "shortDescription": "Real-time multiplayer pong with live chat, AI, tournaments, and secure auth—built with microservice architecture.",            
+            "description": "An online single page multiplayer pong game where players can choose various different game modes such as online, tournament and AI. It also includes a secure authentication system, a chat app and much more. The app was built follwing the microservice architecture for better scalability.",
+            "videoSource": "./assets/videos/paddleWars.webm",
+            "poster": "./assets/images/game.webp"
+        },
+        {
+            "name": "Scribbly",
+            "category": ["Web Dev"],
+            "url": "https://github.com/AchabNassim/productivityApp",
+            "technologies": ["Docker", "React", "Css", "Material_ui", "Nodejs", "Express", "Mongodb"],
+            "shortDescription": "Note app with login, pinning, archiving, and filters—built on the MERN stack.",
+            "description": "A note-taking app allowing users to authenticate, organize, and manage notes with features like archiving, pinning, and filtering. Built with React for the frontend and Node.js MongoDB for the backend.",
+            "videoSource": "./assets/videos/notes.webm",
+            "poster": "./assets/images/notes.webp"
+        },
+        {
+            "name": "WeatherWear",
+            "category": ["Backend Dev"],
+            "url": "https://github.com/AchabNassim/api.git",
+            "technologies": ["Nodejs", "Express", "Postgresql", "Redis", "Jwt"],
+            "shortDescription": "API that suggests outfits based on weather, with roles, tokens, and key control.",
+            "description": "A weather-based recommendation API providing personalized outfit suggestions. Includes secure API key generation and management, with role-based access and efficient database handling.",
+            "videoSource": null,
+            "poster": "./assets/images/api.webp"
+        },
+        {
+            "name": "Webserver",
+            "category": ["Systems Programming", "HTTP"],
+            "url": "https://github.com/mouradden/web-server.git",
+            "technologies": ["C++"],
+            "shortDescription": "Custom HTTP server in C++98 using raw sockets and full protocol handling.",
+            "description": "An HTTP server built with C++ 98, focusing on the HTTP protocol, socket programming, and parsing requests/responses. This project solidified my understanding of server-side development while also improving my object oriented programming skills.",
+            "videoSource": null,
+            "poster": "./assets/images/webserver.webp"
+        },
+        {
+            "name": "Minishell",
+            "category": ["Systems Programming"],
+            "url": "https://github.com/AchabNassim/Minishell",
+            "technologies": ["C"],
+            "shortDescription": "POSIX-compliant shell with ENV variables, pipes, redirections, custom built-ins and much more.",
+            "description": "A Unix shell built with C, implementing command execution, redirections, pipes, environment variables, and built-in commands. This project deepened my understanding of process management, file descriptors, and signal handling in a POSIX environment.",
+            "videoSource": null,
+            "poster": "./assets/images/bash.svg"
+        }
+    ]
+}
