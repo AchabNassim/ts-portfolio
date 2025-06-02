@@ -45,23 +45,22 @@ const Projects = () => {
         <>
             <div 
                 id="projectSection"
-                className="h-auto pb-4 lg:h-[38%] w-full modern-glass font-medium overflow-hidden"
+                className="h-auto lg:h-[30%] xl:h-[26%] w-full modern-glass flex flex-col justify-between px-4 pb-6 lg:pb-2"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
                 onTouchStart={() => setIsHovered(true)}
                 onTouchEnd={() => setIsHovered(false)}
             >
-                <div id="projectContainer" className={`mt-2 h-full flex flex-col ${clickDirection === "left" ? "animate-appear-right" : "animate-appear-left"} ${isChanged ? `animate-disappear-${clickDirection}` : ""}`}>
+                <div id="projectContainer" className={`mt-1 h-full flex flex-col justify-around gap-4 lg:gap-0 items-around ${clickDirection === "left" ? "animate-appear-right" : "animate-appear-left"} ${isChanged ? `animate-disappear-${clickDirection}` : ""}`}>
                     {/* project info */}
-                    <div id="infoContainer" className="h-50 w-[88%] lg:h-[90%] mx-auto flex flex-col gap-1">
-                        <h1 className="text-3xl category-pill-text">Projects</h1>
-                        <div className="flex flex-col gap-2">
-                            <div className="flex flex-row items-center w-full" id="projectName">
-                                <p className="text-2xl font-semibold text-gray-100 whitespace-nowrap drop-shadow-[0_1px_6px_rgba(20,40,80,0.12)]">{projects[index].name}</p>
-                                <div className="flex-1 mx-4">
+                    <div id="infoContainer" className="h-auto w-[100%] lg:h-[98%] mx-auto flex flex-col gap-2 xl:gap-4">
+                        <div className="flex flex-col gap-2 xl:gap-4">
+                            <div className="flex flex-row justify-between items-center w-full" id="projectName">
+                                <span className="blue-teal-highlight text-2xl lg:text-2xl xl:text-3xl font-semibold mr-4">{projects[index].name}</span>
+                                <div className="flex-1">
                                     <div className="modern-divider w-full"></div>
                                 </div>
-                                <div className="flex flex-nowrap justify-center items-center gap-1">
+                                <div className="flex flex-nowrap justify-center items-center gap-1.5">
                                     <GithubIcon url={projects[index].url} />
                                     <PlusIcon onClick={toggleModal} />
                                 </div>
@@ -69,19 +68,19 @@ const Projects = () => {
                             <div className="flex items-center gap-2">
                                 {projects[index].category.map((category) => (
                                     <div key={category} className="category-pill">
-                                      <span className="category-pill-text">{category}</span>
+                                    <span className="category-pill-text">{category}</span>
                                     </div>
                                 ))}
                             </div>
                         </div>
                         {/* short description */}
                         <div id="shortDescription">
-                            <p className="text-[1.25rem] text-gray-200 font-normal">{projects[index].shortDescription}</p>
+                            <p className="text-light-gray-200 text-lg lg:text-lg xl:text-xl leading-relaxed text-balance">{projects[index].shortDescription}</p>
                         </div>
                     </div> 
 
                     {/* Dots navigation */}
-                    <div className="flex justify-center items-center gap-2.5 mb-1 xl:mb-3 mt-8 xl:mt-2">
+                    <div className="flex justify-center items-center gap-2.5 mb-1 xl:mb-1 xl:mt-4">
                         {projects.map((_, idx) => (
                             <button
                                 key={idx}

@@ -13,8 +13,9 @@ const InfiniteScroll = () => {
             />
         </li>
     );
+
     return (
-        <div className="h-30 w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_140px,_black_calc(100%-140px),transparent_100%)]"
+        <div className="h-full w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_140px,_black_calc(100%-140px),transparent_100%)]"
             onMouseEnter={() => setIsHovered(true)} 
             onMouseLeave={() => setIsHovered(false)} 
         >

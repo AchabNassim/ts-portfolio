@@ -6,33 +6,16 @@ interface PlusIconProps {
 }
 
 const PlusIcon: React.FC<PlusIconProps> = ({ onClick, className }) => (
-    <div onClick={onClick} className="w-[2.5rem] h-[2.5rem]">
+    <div onClick={onClick} className="h-[1.65rem] w-[1.65rem] md:h-[2rem] md:w-[2rem]">
         <svg
             className={`fill-light-gray-100 hover:fill-gray-300 hover:cursor-pointer ${className} transition`}
+            viewBox="0 0 26 26"
+            fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            xmlnsXlink="http://www.w3.org/1999/xlink"
-            viewBox="0,0,256,256"
-            fillRule="nonzero"
         >
-            <g
-                fillRule="nonzero"
-                stroke="none"
-                strokeWidth="1"
-                strokeLinecap="butt"
-                strokeLinejoin="miter"
-                strokeMiterlimit="10"
-                strokeDasharray=""
-                strokeDashoffset="0"
-                fontFamily="none"
-                fontWeight="none"
-                fontSize="none"
-                textAnchor="none"
-                style={{ mixBlendMode: "normal" }}
-            >
-                <g transform="scale(10.66667,10.66667)">
-                    <path d="M12,2c-5.523,0 -10,4.477 -10,10c0,5.523 4.477,10 10,10c5.523,0 10,-4.477 10,-10c0,-5.523 -4.477,-10 -10,-10zM16,13h-3v3c0,0.552 -0.448,1 -1,1v0c-0.552,0 -1,-0.448 -1,-1v-3h-3c-0.552,0 -1,-0.448 -1,-1v0c0,-0.552 0.448,-1 1,-1h3v-3c0,-0.552 0.448,-1 1,-1v0c0.552,0 1,0.448 1,1v3h3c0.552,0 1,0.448 1,1v0c0,0.552 -0.448,1 -1,1z"></path>
-                </g>
-            </g>
+            <path
+                d="M13 0C5.83 0 0 5.83 0 13C0 20.17 5.83 26 13 26C20.17 26 26 20.17 26 13C26 5.83 20.17 0 13 0ZM18 14H14V18C14 18.552 13.552 19 13 19C12.448 19 12 18.552 12 18V14H8C7.448 14 7 13.552 7 13C7 12.448 7.448 12 8 12H12V8C12 7.448 12.448 7 13 7C13.552 7 14 7.448 14 8V12H18C18.552 12 19 12.448 19 13C19 13.552 18.552 14 18 14Z"
+            />
         </svg>
     </div>
 );

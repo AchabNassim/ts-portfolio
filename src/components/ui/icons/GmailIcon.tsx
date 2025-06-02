@@ -6,7 +6,7 @@ interface GmailIconProps {
 }
 
 const GmailIcon: React.FC<GmailIconProps> = ({ url, className = "" }) => (
-    <div className={`socialContainer h-[2rem] w-[2rem] ${className}`}>
+    <div className={`socialContainer h-[1.65rem] w-[1.65rem] md:h-[2rem] md:w-[2rem] ${className}`}>
         <a href={url} target="_blank" rel="noopener noreferrer">
             <svg
                 className="fill-light-gray-100 hover:fill-gray-300 transition"

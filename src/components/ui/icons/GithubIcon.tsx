@@ -5,7 +5,7 @@ interface GithubIconProps {
 }
 
 const GithubIcon: React.FC<GithubIconProps> = ({ url }) => (
-    <div className="socialContainer h-[2rem] w-[2rem]">
+    <div className="socialContainer h-[1.65rem] w-[1.65rem] md:h-[2rem] md:w-[2rem]">
         <a href={url} target="_blank" rel="noopener noreferrer">
             <svg
                 className="fill-light-gray-100 hover:fill-gray-300 transition"

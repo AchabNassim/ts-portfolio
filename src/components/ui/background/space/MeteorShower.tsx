@@ -88,7 +88,7 @@ const MeteorShower = () => {
             const y = Math.floor(Math.random() * (CANVAS_HEIGHT / 2));
             const radius = Math.round(Math.random() * 1) + 0.8;
             animate(ctx, Date.now(), x, y, radius);
-        }, 2000);
+        }, 3000);
 
         return () => clearInterval(intervalRef.current!);
     }, []);

@@ -4,7 +4,7 @@ import GithubIcon from "../icons/GithubIcon";
 
 type Project = {
     name: string
-    category: string
+    category: Array<string>
     url: string
     technologies: Array<string>
     shortDescription: string

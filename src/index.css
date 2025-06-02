@@ -1,6 +1,10 @@
 @import "tailwindcss";
 
 @theme {
+  /* breakppoints */
+  --breakpoint-xl: 1800px;
+  --breakpoint-2xl: 2600px;
+
   /* colors */
   --color-light-gray-100: #f8f9ff;
   --color-light-gray-200: #edf2fa;
@@ -37,6 +41,7 @@
   --animate-float: float 3s ease-in-out infinite;
   --animate-fade-in: fade-in 0.4s ease-in-out forwards;
   --animate-fade-out: fade-out 0.4s ease-in-out forwards;
+  --animate-appear-bottom: appear-bottom 0.4s cubic-bezier(.33,1.02,.57,1);
   --animate-appear-right: appear-right 0.55s cubic-bezier(.33,1.02,.57,1) both;
   --animate-appear-left: appear-left 0.55s cubic-bezier(.33,1.02,.57,1) both;
   --animate-disappear-right: disappear-right 0.35s linear both;
@@ -84,6 +89,19 @@
       }
   }
 
+  @keyframes appear-bottom {
+    from {
+      /* opacity: 0.8; */
+      transform: scale(0.9);
+      transform: translateY(1%);
+    }
+    to {
+      /* opacity: 1; */
+      transform: scale(1);
+      transform: translateY(0%);
+    }
+  }
+
   /* Appear: fade in, scale up, slight upward movement */
   @keyframes appear-right {
     from {
@@ -92,9 +110,10 @@
     }
     to {
       opacity: 1;
-      transform: scale(1);
+      transform: scale(1); 
     }
   }
+
   @keyframes appear-left {
     from {
       opacity: 0;
@@ -129,33 +148,35 @@
     filter: blur(4px);
   }
 }
+
 @keyframes disappear-left {
   0% {
-    opacity: 1;
-    transform: scale(1) translateX(0);
-    filter: blur(0);
+      opacity: 1;
+      transform: scale(1) translateX(0);
+      filter: blur(0);
+    }
+    30% {
+      opacity: 0.95;
+      transform: scale(0.995) translateX(-2px);
+      filter: blur(0.2px);
+    }
+    60% {
+      opacity: 0.7;
+      transform: scale(0.94) translateX(-14px);
+      filter: blur(2px);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.90) translateX(-28px);
+      filter: blur(4px);
+    }
   }
-  30% {
-    opacity: 0.95;
-    transform: scale(0.995) translateX(-2px);
-    filter: blur(0.2px);
-  }
-  60% {
-    opacity: 0.7;
-    transform: scale(0.94) translateX(-14px);
-    filter: blur(2px);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0.90) translateX(-28px);
-    filter: blur(4px);
-  }
-}
 }
 
 @layer base {
   body {
     background-image: radial-gradient(110% 110% at 50% 0%, #000212 50%, #00a1ad 100%);
+    min-height: 100vh;
   }
 }
 
@@ -255,25 +276,40 @@
     box-shadow: 0 0 8px 2px rgba(56,189,248,0.10);
   }
 
-  .blue-highlight {
-    color: #488DFF;
-    font-weight: 600;
+  .teal-highlight, .blue-highlight {
+    color: #179e91;
+    box-shadow: none;
   }
 
   .teal-highlight {
-    color: #59B9B4;
-    font-weight: 600;
-  }
-
-  .image-shadow {
-    box-shadow: #59b9b4cf 0px 4px 16px, #59b9b480 0px 4px 4px;
-  }
-
-  .text-gradient {
-    background: linear-gradient(to right, #2563eb, #14b8a6);
+    background: linear-gradient(90deg, #38bdf8 0%, #14b8a6 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-weight: 700;
+  }
+
+  .blue-highlight {
+    background: linear-gradient(90deg, #60a5fa 0%, #2563eb 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+  }
+
+  .blue-teal-highlight {
+    background: linear-gradient(90deg, #2563eb 0%, #38bdf8 60%, #14b8a6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+
+  .image-shadow {
+    box-shadow:
+      0 4px 16px 0 #59b9b4cf,
+      0 4px 4px 0 #59b9b480;
   }
 }
 
