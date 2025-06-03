@@ -1,5 +1,7 @@
 import ProfileImage from "../ui/imageContainer/imageContainer.tsx";
-import Socials from "./Socials.tsx";
+import GithubIcon from "../ui/icons/GithubIcon";
+import GmailIcon from "../ui/icons/GmailIcon";
+import LinkedinIcon from "../ui/icons/LinkedinIcon";
 import Alien from "../ui/background/space/Alien.tsx";
 
 const HeroSection = () => {
@@ -21,9 +23,17 @@ const HeroSection = () => {
             <p className="text-light-gray-200 w-[100%] sm:w-[100%] text-balance" id="introductiontext">
                 <span className="font-bold blue-teal-highlight">Passionate </span> developer  with <span className="font-bold teal-highlight">love</span> for building elegant, performant web apps.
                 <br />
-                <span className="font-bold blue-teal-highlight"> Let's connect!</span>
+                <div className="flex items-center gap-2 mt-1 lg:flex-col lg:items-baseline lg:mt-0">
+                    <div>
+                        <span className="font-bold blue-teal-highlight"> Let's connect!</span>
+                    </div>
+                    <div className="flex gap-2 lg:mt-1">
+                        <GithubIcon url="https://github.com/AchabNassim" />
+                        <GmailIcon url="mailto: nassim.aacb@gmail.com" />
+                        <LinkedinIcon url="https://linkedin.com/in/nassim-achab-97a179301" />
+                    </div>
+                </div>
             </p>
-            <Socials />
         </div>
     )
 }

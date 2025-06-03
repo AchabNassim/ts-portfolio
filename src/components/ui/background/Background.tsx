@@ -1,5 +1,3 @@
-import React from 'react';
-import Ufo from './space/Ufo.tsx';
 import MeteorShower from './space/MeteorShower.tsx';
 import Stars from './space/Stars.tsx';
 
@@ -13,7 +11,6 @@ function Background() {
         >
           <Stars />
           <MeteorShower />
-          <Ufo />
         </div>
     </>
   )
