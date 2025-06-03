@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 
 const CANVAS_HEIGHT = window.innerHeight;
 const CANVAS_WIDTH = window.innerWidth;
-const ANIMATION_TIME = 1.4;
+const ANIMATION_TIME = 1.2;
 
 const MeteorShower = () => {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -88,7 +88,7 @@ const MeteorShower = () => {
             const y = Math.floor(Math.random() * (CANVAS_HEIGHT / 2));
             const radius = Math.round(Math.random() * 1) + 0.8;
             animate(ctx, Date.now(), x, y, radius);
-        }, 3000);
+        }, 4000);
 
         return () => clearInterval(intervalRef.current!);
     }, []);

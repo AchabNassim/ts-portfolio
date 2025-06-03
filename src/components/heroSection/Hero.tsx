@@ -4,7 +4,7 @@ import Alien from "../ui/background/space/Alien.tsx";
 
 const HeroSection = () => {
     return (
-        <div className="h-[94%] xl:h-[84%] flex flex-col justify-end align-center text-2xl md:text-4xl text-light-gray-100 font-semibold gap-0.25 lg:gap-0">
+        <div className="h-auto lg:h-[94%] xl:h-[84%] flex flex-col justify-end align-center text-2xl md:text-4xl text-light-gray-100 font-semibold gap-0.25 lg:gap-0">
             <ProfileImage
                 src="./assets/images/me.webp"
                 alt="profile"
