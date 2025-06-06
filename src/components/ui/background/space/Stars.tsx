@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const NUMBER_STARS = 400;
 const CANVAS_HEIGHT = 3000;

@@ -25,6 +25,7 @@ const Projects = () => {
     const [clickDirection, setClickDirection] = useState("right");
     const [isHovered, setIsHovered] = useState(false);
     const [isClickedModal, setIsClickedModal] = useState(false);
+    const [dotsRendered, setDotsRendered] = useState(false);
 
     const changeIndex = (idx: number) => {
         if (idx === index) return;
@@ -41,15 +42,22 @@ const Projects = () => {
         setIsClickedModal(!isClickedModal);
     }
 
+    const handleOnHover = () => {
+        setDotsRendered(true);
+        setIsHovered(true);
+    }
+
+    const handleOnLeave = () => {
+        setIsHovered(false);
+    }
+
     return (
         <>
             <div 
                 id="projectSection"
                 className="h-auto lg:h-[30%] xl:h-[26%] w-full modern-glass flex flex-col justify-between px-4 pb-6 lg:pb-2"
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-                onTouchStart={() => setIsHovered(true)}
-                onTouchEnd={() => setIsHovered(false)}
+                onMouseEnter={handleOnHover}
+                onMouseLeave={handleOnLeave}
             >
                 <div id="projectContainer" className={`mt-1 h-full flex flex-col justify-around gap-4 lg:gap-0 items-around ${clickDirection === "left" ? "animate-appear-right" : "animate-appear-left"} ${isChanged ? `animate-disappear-${clickDirection}` : ""}`}>
                     {/* project info */}
@@ -80,12 +88,12 @@ const Projects = () => {
                     </div> 
 
                     {/* Dots navigation */}
-                    <div className="flex justify-center items-center gap-2.5 mb-1 xl:mb-1 xl:mt-4">
+                    <div className={`flex justify-center items-center gap-3.5 lg:gap-2.5 mb-1 xl:mb-1 xl:mt-4 ${dotsRendered ? "lg:visible" : "lg:invisible"} ${!isHovered ? "lg:animate-fade-out" : "lg:animate-fade-in"}`}>
                         {projects.map((_, idx) => (
                             <button
                                 key={idx}
                                 onClick={() => changeIndex(idx)}
-                                className={`project-dot ${idx === index ? "project-dot-active" : "project-dot-inactive"} ${!isHovered ? "animate-fade-out" : "animate-fade-in"}`}
+                                className={`project-dot w-[0.9rem] h-[0.9rem] lg:w-[0.7rem] lg:h-[0.7rem] ${idx === index ? "project-dot-active" : "project-dot-inactive"}`}
                                 aria-label={`Go to project ${idx + 1}`}
                             />
                         ))}

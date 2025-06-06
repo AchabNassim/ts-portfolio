@@ -6,7 +6,7 @@ interface LinkedinIconProps {
 
 const LinkedinIcon: React.FC<LinkedinIconProps> = ({ url }) => (
     <div className="socialContainer h-[1.65rem] w-[1.65rem] md:h-[2rem] md:w-[2rem]">
-        <a href={url} target="_blank" rel="noopener noreferrer">
+        <a href={url} target="_blank" rel="noopener noreferrer" aria-label="Linkedin profile" title="Linkedin">
             <svg
                 className="fill-light-gray-100 hover:fill-gray-300 transition"
                 xmlns="http://www.w3.org/2000/svg"

@@ -10,7 +10,7 @@ function App() {
     >
       <div 
         id="appContainer" 
-        className="min-h-full w-[90vw] xl:w[60vw] lg:w-screen flex flex-col justify-baseline items-center gap-4 lg:gap-20 lg:h-screen lg:flex-row lg:justify-center lg:items-center"
+        className="min-h-full w-[89vw] md:w-[80vw] lg:w-screen xl:w[60vw] flex flex-col justify-baseline items-center gap-4 lg:gap-20 lg:h-screen lg:flex-row lg:justify-center lg:items-center"
       >
         <div 
           id="heroContainer" 

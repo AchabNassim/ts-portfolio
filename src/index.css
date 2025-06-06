@@ -39,8 +39,8 @@
 
   /* animations */
   --animate-float: float 3s ease-in-out infinite;
-  --animate-fade-in: fade-in 0.4s ease-in-out forwards;
-  --animate-fade-out: fade-out 0.4s ease-in-out forwards;
+  --animate-fade-in: fade-in 0.5s ease-in-out forwards;
+  --animate-fade-out: fade-out 0.5s ease-in-out forwards;
   --animate-appear-bottom: appear-bottom 0.4s cubic-bezier(.33,1.02,.57,1);
   --animate-appear-right: appear-right 0.55s cubic-bezier(.33,1.02,.57,1) both;
   --animate-appear-left: appear-left 0.55s cubic-bezier(.33,1.02,.57,1) both;
@@ -70,7 +70,7 @@
 
   @keyframes fade-in {
       from {
-        transform: scale(0.4);
+        transform: scale(0.78);
         opacity: 0;
       }
       to {
@@ -84,7 +84,7 @@
         opacity: 1;
       }
       to {
-        transform: scale(0.4);
+        transform: scale(0.78);
         opacity: 0;
       }
   }
