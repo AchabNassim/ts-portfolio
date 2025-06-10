@@ -8,24 +8,20 @@ interface RightControlIconProps {
 const RightControlIcon: React.FC<RightControlIconProps> = ({ onClick, className }) => (
     <div
         onClick={onClick}
-        className={`h-[1.75rem] w-[1.75rem] md:h-[1.6rem] md:w-[1.6rem]`}
+        className={`h-[1.4rem] w-[1.4rem] md:h-[1.38rem] md:w-[1.38rem]`}
         role={onClick ? "button" : undefined}
         tabIndex={onClick ? 0 : undefined}
         aria-label="Next"
     >
         <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 256 256"
             width="100%"
             height="100%"
+            viewBox="0 0 200 380"
             fill="none"
+            xmlns="http://www.w3.org/2000/svg"
             className={`fill-light-gray-100 hover:fill-gray-300 hover:cursor-pointer ${className} transition`}
         >
-            <g fillRule="nonzero" stroke="none" strokeWidth="1" strokeLinecap="butt" strokeLinejoin="miter" strokeMiterlimit="10" strokeDasharray="" strokeDashoffset="0" fontFamily="none" fontWeight="none" fontSize="none" textAnchor="none" style={{ mixBlendMode: "normal" }}>
-                <g transform="scale(8.53333,8.53333)">
-                    <path d="M20,6.92773c-0.129,0 -0.25881,0.02417 -0.38281,0.07617c-0.374,0.154 -0.61719,0.51983 -0.61719,0.92383v4.07031h-15c-1.105,0 -2,0.895 -2,2v2c0,1.105 0.895,2 2,2h15v4.07227c0,0.404 0.24319,0.76983 0.61719,0.92383c0.374,0.156 0.80284,0.0692 1.08984,-0.2168l7.07031,-7.07227c0.391,-0.391 0.391,-1.02111 0,-1.41211l-7.07031,-7.07227c-0.191,-0.191 -0.44703,-0.29297 -0.70703,-0.29297z"></path>
-                </g>
-            </g>
+            <path d="M28.3815 379.951C21.7618 379.963 15.3464 377.76 10.2492 373.722C7.38043 371.448 5.00902 368.656 3.27082 365.505C1.53262 362.354 0.461786 358.906 0.119657 355.359C-0.222473 351.812 0.170828 348.235 1.27702 344.833C2.38322 341.432 4.18055 338.272 6.56613 335.535L133.492 190.371L11.0992 44.9368C8.74582 42.1666 6.98836 38.979 5.92786 35.5574C4.86735 32.1358 4.52472 28.5475 4.91964 24.9989C5.31456 21.4503 6.43923 18.0113 8.22905 14.8795C10.0189 11.7477 12.4385 8.98499 15.3489 6.75005C18.2803 4.28452 21.7131 2.42481 25.432 1.28763C29.1509 0.150452 33.0755 -0.23964 36.9596 0.141818C40.8437 0.523276 44.6033 1.66806 48.0026 3.50432C51.4019 5.34059 54.3674 7.82868 56.7131 10.8125L193.555 173.309C197.722 178.155 200 184.234 200 190.507C200 196.78 197.722 202.858 193.555 207.704L51.8968 370.201C49.0546 373.479 45.4442 376.07 41.3585 377.764C37.2728 379.458 32.8269 380.207 28.3815 379.951Z"/>
         </svg>
     </div>
 );

@@ -189,8 +189,8 @@
     box-shadow:
       0 6px 32px 0 rgba(36, 54, 102, 0.13),   /* soft blue-gray shadow */
       0 1.5px 8px 0 rgba(16, 57, 71, 0.06);   /* subtle deep shadow */
-    backdrop-filter: blur(6px) saturate(1.03);
-    -webkit-backdrop-filter: blur(6px) saturate(1.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(89,185,180,0.06);
     position: relative;
     overflow: hidden;
@@ -207,12 +207,12 @@
   }
 
   .modern-glass {
-    background: linear-gradient(120deg, rgba(30,41,59,0.18) 60%, rgba(89,185,180,0.10) 100%);
+    background: linear-gradient(120deg, rgba(30,41,59,0.28) 60%, rgba(89,185,180,0.18) 100%);
     border-radius: 1.5rem;
     box-shadow: 0 8px 32px 0 rgba(36, 54, 102, 0.18), 0 2px 8px 0 rgba(16, 57, 71, 0.09);
     border: 1.5px solid rgba(89,185,180,0.10);
-    backdrop-filter: blur(12px) saturate(1.08);
-    -webkit-backdrop-filter: blur(12px) saturate(1.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     position: relative;
     overflow: hidden;
   }

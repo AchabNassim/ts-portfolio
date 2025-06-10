@@ -3,6 +3,8 @@ import projectData from './projects.json';
 import GithubIcon from "../ui/icons/GithubIcon";
 import PlusIcon from "../ui/icons/PlusIcon";
 import Spinner from "../ui/spinner/Spinner";
+import LeftControlIcon from "../ui/icons/LeftControlIcon";
+import RightControlIcon from "../ui/icons/RightControlIcon";
 const ProjectModal = lazy(() => import("../ui/modal/ProjectModal"));
 
 
@@ -51,17 +53,35 @@ const Projects = () => {
         setIsHovered(false);
     }
 
+    const next = () => {
+        const nextIndex = (index + 1) % projects.length;
+        changeIndex(nextIndex);
+    };
+
+    const previous = () => {
+        const prevIndex = (index - 1 + projects.length) % projects.length;
+        changeIndex(prevIndex);
+    };
+
     return (
         <>
             <div 
                 id="projectSection"
-                className="h-[28vh] lg:h-[30%] xl:h-[26%] w-full modern-glass flex flex-col justify-between px-4 pb-6 lg:pb-2"
+                className="relative h-[28vh] lg:h-[32%] xl:h-[28%] w-full modern-glass flex flex-col justify-between px-4 pb-6 lg:pb-2"
                 onMouseEnter={handleOnHover}
                 onMouseLeave={handleOnLeave}
             >
+                <div className={`absolute left-0 flex justify-between items-center w-full h-full ${isChanged ? "hidden" : "visible"}`}>
+                    <div>
+                        <LeftControlIcon onClick={previous} className={`${!isHovered ? "lg:animate-fade-out" : "lg:animate-fade-in"}`} />
+                    </div>
+                    <div>
+                        <RightControlIcon onClick={next} className={`${!isHovered ? "lg:animate-fade-out" : "lg:animate-fade-in"}`} />
+                    </div>
+                </div>
                 <div id="projectContainer" className={`mt-1 h-full flex flex-col justify-around gap-4 lg:gap-0 items-around ${clickDirection === "left" ? "animate-appear-right" : "animate-appear-left"} ${isChanged ? `animate-disappear-${clickDirection}` : ""}`}>
                     {/* project info */}
-                    <div id="infoContainer" className="h-auto w-[100%] lg:h-[98%] mx-auto flex flex-col gap-2 xl:gap-4">
+                    <div id="infoContainer" className="h-auto w-[94%] lg:w-[96%] p-1 lg:h-[98%] mx-auto flex flex-col gap-2 xl:gap-4">
                         <div className="flex flex-col gap-2 xl:gap-4">
                             <div className="flex flex-row justify-between items-center w-full" id="projectName">
                                 <span className="blue-teal-highlight text-2xl lg:text-2xl xl:text-3xl font-semibold mr-4">{projects[index].name}</span>

@@ -20,7 +20,7 @@ function App() {
         </div>
         <div 
           id="infoContainer" 
-          className="flex flex-col justify-center gap-4 w-[96%] h-auto lg:w-[34%] xl:w-[30%] lg:h-[94%] mx-2 animate-appear-bottom"
+          className="flex flex-col justify-center gap-4 w-[96%] h-auto lg:w-[35%] xl:w-[30%] lg:h-[94%] mx-2 animate-appear-bottom"
         >
           <SkillSection />
           <Projects />
