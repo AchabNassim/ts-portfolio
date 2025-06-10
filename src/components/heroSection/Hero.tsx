@@ -13,14 +13,14 @@ const HeroSection = () => {
                 containerClass="hidden lg:block h-[230px] w-[230px] xl:h-[260px] xl:w-[260px] rounded-full"
                 imgClass="h-[230px] w-[230px] xl:h-[260px] xl:w-[260px] rounded-full image-shadow animate-float"
             />
-            <div className="flex flex-nowrap items-center gap-1.5 mt-2 lg:mt-14">
+            <div className="flex flex-nowrap items-center gap-2 mt-2 lg:mt-14">
                 <p className="text-3xl md:text-5xl font-semibold inline-block m-0 p-0 whitespace-nowrap">
                     Hello, I'm 
                     <span className="font-bold tracking-wider" id="myName"> Nassim. </span>
                 </p>
                 <Alien />
             </div>
-            <p className="text-light-gray-200 w-full sm:w-full text-balance" id="introductiontext">
+            <p className="text-light-gray-200 w-full sm:w-full text-balance lg:mb-1" id="introductiontext">
                 <span className="font-bold blue-teal-highlight">Passionate</span> developer with <span className="font-bold blue-teal-highlight"> love</span> for building Elegant, Performant web experiences.
                 <br className="block lg:hidden" />
                 <span className="font-bold blue-teal-highlight"> Let's connect!</span>

@@ -55,7 +55,7 @@ const Projects = () => {
         <>
             <div 
                 id="projectSection"
-                className="h-auto lg:h-[30%] xl:h-[26%] w-full modern-glass flex flex-col justify-between px-4 pb-6 lg:pb-2"
+                className="h-[28vh] lg:h-[30%] xl:h-[26%] w-full modern-glass flex flex-col justify-between px-4 pb-6 lg:pb-2"
                 onMouseEnter={handleOnHover}
                 onMouseLeave={handleOnLeave}
             >

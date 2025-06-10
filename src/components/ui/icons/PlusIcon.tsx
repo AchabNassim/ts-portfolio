@@ -6,7 +6,7 @@ interface PlusIconProps {
 }
 
 const PlusIcon: React.FC<PlusIconProps> = ({ onClick, className }) => (
-    <div onClick={onClick} className="h-[1.65rem] w-[1.65rem] md:h-[2rem] md:w-[2rem]">
+    <div onClick={onClick} className="h-[1.9rem] w-[1.9rem] md:h-[2rem] md:w-[2rem]">
         <svg
             className={`fill-light-gray-100 hover:fill-gray-300 hover:cursor-pointer ${className} transition`}
             viewBox="0 0 26 26"
