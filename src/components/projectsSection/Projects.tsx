@@ -67,7 +67,7 @@ const Projects = () => {
         <>
             <div 
                 id="projectSection"
-                className="relative h-[28vh] lg:h-[32%] xl:h-[28%] w-full modern-glass flex flex-col justify-between px-4 pb-6 lg:pb-2"
+                className="relative h-[310px] sm:h-[38%] lg:h-[32%] xl:h-[28%] w-full modern-glass flex flex-col justify-between px-4 pb-6 lg:pb-2 hover:scale-101 transition"
                 onMouseEnter={handleOnHover}
                 onMouseLeave={handleOnLeave}
             >
@@ -79,7 +79,7 @@ const Projects = () => {
                         <RightControlIcon onClick={next} className={`${!isHovered ? "lg:animate-fade-out" : "lg:animate-fade-in"}`} />
                     </div>
                 </div>
-                <div id="projectContainer" className={`mt-1 h-full flex flex-col justify-around gap-4 lg:gap-0 items-around ${clickDirection === "left" ? "animate-appear-right" : "animate-appear-left"} ${isChanged ? `animate-disappear-${clickDirection}` : ""}`}>
+                <div id="projectContainer" className={`mt-1 h-full p-0.5 flex flex-col justify-around gap-4 lg:gap-0 items-around ${clickDirection === "left" ? "animate-appear-right" : "animate-appear-left"} ${isChanged ? `animate-disappear-${clickDirection}` : ""}`}>
                     {/* project info */}
                     <div id="infoContainer" className="h-auto w-[94%] lg:w-[96%] p-1 lg:h-[98%] mx-auto flex flex-col gap-2 xl:gap-4">
                         <div className="flex flex-col gap-2 xl:gap-4">
@@ -93,10 +93,10 @@ const Projects = () => {
                                     <PlusIcon onClick={toggleModal} />
                                 </div>
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 mt-1 lg:mt-0.5">
                                 {projects[index].category.map((category) => (
                                     <div key={category} className="category-pill">
-                                    <span className="category-pill-text">{category}</span>
+                                    <span className="category-pill-text text-[0.72rem] sm:text-base">{category}</span>
                                     </div>
                                 ))}
                             </div>

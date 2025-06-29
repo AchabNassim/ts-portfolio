@@ -2,7 +2,7 @@ import InfiniteScroll from "./InfiniteScroll";
 
 const SkillSection = () => {
     return (
-        <div id="skillSection" className="h-auto lg:h-[64%] xl:h-[58%] w-full modern-glass flex flex-col justify-around px-4 py-4">
+        <div id="skillSection" className="h-auto lg:h-[66%] xl:h-[58%] w-full modern-glass flex flex-col justify-around px-4 py-4 hover:scale-101 transition">
             {/* About Header */}
             <div className="w-full flex items-center mb-2">
                 <span className="blue-teal-highlight text-2xl lg:text-2xl xl:text-3xl font-semibold mr-4 mb-0.5">About</span>
@@ -11,7 +11,7 @@ const SkillSection = () => {
                 </div>
             </div>
             {/* About Text */}
-            <p className="text-light-gray-200 text-lg lg:text-lg xl:text-xl leading-relaxed mb-4 text-balance">
+            <p className="text-light-gray-200 text-lg lg:text-lg xl:text-xl leading-relaxed mb-3.5 text-balance">
                 Software Engineering student at <span className="blue-highlight underline decoration-2 decoration-blue-600 hover:decoration-blue-500 transition"><a href="https://www.42network.org/" target="_blank"> 42 network</a></span>. If my head isn't glued to the computer's screen, I'm either playing chess or training calisthenics.
             </p>
             {/* Education */}

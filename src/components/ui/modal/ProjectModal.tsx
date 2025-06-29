@@ -33,7 +33,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ className, project, onClick
             >
                 <div
                     id="modal"
-                    className="w-[95vw] lg:w-[70vw] max-w-3xl h-[90vh] bg-glass shadow-2xl rounded-2xl flex flex-col p-4 overflow-auto relative animate-fade-in"
+                    className="w-[95vw] lg:w-[70vw] max-w-3xl min-h-[90vh]  lg:h-[90vh] bg-glass shadow-2xl rounded-2xl flex flex-col p-4 overflow-auto relative animate-fade-in"
                     onClick={e => e.stopPropagation()}
                 >
                     {/* Close Icon */}

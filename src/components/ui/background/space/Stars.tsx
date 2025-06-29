@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-const NUMBER_STARS = 400;
+const NUMBER_STARS = 600;
 const CANVAS_HEIGHT = 3000;
 const CANVAS_WIDTH = 3000;
 

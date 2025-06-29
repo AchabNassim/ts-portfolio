@@ -8,7 +8,7 @@ interface RightControlIconProps {
 const RightControlIcon: React.FC<RightControlIconProps> = ({ onClick, className }) => (
     <div
         onClick={onClick}
-        className={`h-[1.4rem] w-[1.4rem] md:h-[1.38rem] md:w-[1.38rem]`}
+        className={`h-[1.4rem] w-[1.4rem] md:h-[1.25rem] md:w-[1.25rem]`}
         role={onClick ? "button" : undefined}
         tabIndex={onClick ? 0 : undefined}
         aria-label="Next"

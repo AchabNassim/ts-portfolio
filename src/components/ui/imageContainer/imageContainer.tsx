@@ -7,13 +7,13 @@ interface imageContainerProps {
     imgClass?: string;
 }
 
-const imageContainer: React.FC<imageContainerProps> = ({ src, alt, containerClass = "", imgClass = "" }) => {
+const ImageContainer: React.FC<imageContainerProps> = ({ src, alt, containerClass = "", imgClass = "" }) => {
     const [isLoaded, setIsLoaded] = useState(false);
 
     return (
         <div className={`${containerClass}`}>
             {!isLoaded && (
-                <div className="w-full h-full flex items-center justify-center bg-black/20 rounded-xl animate-pulse z-10">
+                <div className={`w-full h-full flex items-center justify-center bg-black/20 rounded-full animate-pulse z-10`}>
                     <span className="text-gray-400">Loading...</span>
                 </div>
             )}
@@ -27,4 +27,4 @@ const imageContainer: React.FC<imageContainerProps> = ({ src, alt, containerClas
     );
 };
 
-export default imageContainer;
+export default ImageContainer;

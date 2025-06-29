@@ -1,4 +1,4 @@
-import ProfileImage from "../ui/imageContainer/imageContainer.tsx";
+import ImageContainer from "../ui/imageContainer/imageContainer.tsx";
 import GithubIcon from "../ui/icons/GithubIcon";
 import GmailIcon from "../ui/icons/GmailIcon";
 import LinkedinIcon from "../ui/icons/LinkedinIcon";
@@ -7,7 +7,7 @@ import Alien from "../ui/background/space/Alien.tsx";
 const HeroSection = () => {
     return (
         <div className="h-auto lg:h-[94%] xl:h-[84%] flex flex-col justify-end align-center text-2xl md:text-4xl text-light-gray-100 font-semibold gap-2.5 lg:gap-0 mb-6 lg:mb-0">
-            <ProfileImage
+            <ImageContainer
                 src="./assets/images/me.webp"
                 alt="profile"
                 containerClass="hidden lg:block h-[230px] w-[230px] xl:h-[260px] xl:w-[260px] rounded-full"

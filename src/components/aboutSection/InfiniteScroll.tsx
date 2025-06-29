@@ -5,9 +5,9 @@ const InfiniteScroll = () => {
 
     const tech : Array<string> = ['html', 'css', 'javascript', 'typescript', 'react', 'zustand', 'tailwind', 'nodejs', 'express', 'postgresql', 'mongodb', 'redis', 'jest', 'php', 'mariadb', 'wordpress', 'c', 'c++', 'docker', 'linux', 'nginx', 'git', 'figma', 'jwt', 'web_component', 'web_socket'];
     const liItems = tech.map((value: string, index: number) =>
-    <li className="w-10 md:w-10 h-full mx-2" key={index}>
+    <li className="w-10 lg:w-11 h-full mx-2" key={index}>
             <img
-                className="max-w-none h-full w-full"
+                className="max-w-none h-full w-full text-gray-400"
                 src={`./assets/images/tech/${value}.svg`}
                 alt={value}
             />

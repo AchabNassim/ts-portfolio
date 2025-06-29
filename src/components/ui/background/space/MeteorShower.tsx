@@ -2,79 +2,80 @@ import { useEffect, useRef } from "react";
 
 const CANVAS_HEIGHT = window.innerHeight;
 const CANVAS_WIDTH = window.innerWidth;
-const ANIMATION_TIME = 1.2;
+const ANIMATION_TIME = 1.6;
+
+type Meteor = {
+    startX: number;
+    startY: number;
+    endX: number;
+    endY: number;
+    radius: number;
+    color: string;
+    startTime: number;
+    duration: number;
+};
+
+const COLORS = [
+    "rgba(122, 194, 184, 1)",
+    "rgba(89, 185, 180, 1)",
+    "rgba(120, 180, 255, 1)",
+    "rgba(255,255,255,1)"
+];
+
+function lerp(a: number, b: number, t: number) {
+    return a + (b - a) * t;
+}
 
 const MeteorShower = () => {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
-    const intervalRef = useRef<number | null>(null);
+    const meteorsRef = useRef<Meteor[]>([]);
 
-    const shootingStar = (
+    // Draw a single meteor with a glowing, colored trail
+    const drawMeteor = (
         ctx: CanvasRenderingContext2D,
-        x: number,
-        y: number,
-        radius: number,
+        meteor: Meteor,
         progress: number
     ) => {
-        ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-        let alpha = 1;
-        if (progress < 0.3) alpha = progress / 0.3;
-        else if (progress > ANIMATION_TIME - 0.3)
-            alpha = (ANIMATION_TIME - progress) / 0.3;
+        // Interpolate position
+        const x = lerp(meteor.startX, meteor.endX, progress);
+        const y = lerp(meteor.startY, meteor.endY, progress);
 
-        ctx.globalAlpha = Math.max(0, Math.min(1, alpha));
+        // Trail
+        const trailLength = 100;
+        const trailX = lerp(meteor.startX, meteor.endX, Math.max(0, progress - trailLength / CANVAS_WIDTH));
+        const trailY = lerp(meteor.startY, meteor.endY, Math.max(0, progress - trailLength / CANVAS_WIDTH));
 
-        const starX = x - progress * 700;
-        const starY = y + progress * 300;
+        // Trail gradient
+        const gradient = ctx.createLinearGradient(x, y, trailX, trailY);
+        gradient.addColorStop(0, meteor.color);
+        gradient.addColorStop(0.5, "rgba(255,255,255,0.5)");
+        gradient.addColorStop(1, "rgba(255,255,255,0)");
 
-        // Draw trail - line to the right of the star
-        const trailLength = 2;
-        const gradient = ctx.createLinearGradient(
-        starX, starY,
-        starX + (trailLength / 2) * Math.cos(-Math.PI / 4), // 45° up-right
-        starY + (trailLength / 2) * Math.sin(-Math.PI / 4)
-        );
-        gradient.addColorStop(0, `rgba(255, 255, 255, ${alpha})`);
-        gradient.addColorStop(1, `rgba(122, 194, 184, 0)`);
-
+        ctx.save();
+        // Fade in at start, fade out at end
+        let alpha = Math.min(1, Math.max(0, (progress - 0.08) / 0.18)); // fade in
+        alpha *= 1 - progress * 0.7; // fade out
+        ctx.globalAlpha = alpha;
         ctx.strokeStyle = gradient;
-        ctx.lineWidth = radius * 2;
-        ctx.shadowBlur = 8;
-        ctx.shadowColor = "rgba(122, 194, 184, 0.4)";
+        ctx.lineWidth = meteor.radius * 2.2;
+        ctx.shadowBlur = 14;
+        ctx.shadowColor = meteor.color;
         ctx.beginPath();
-        ctx.moveTo(starX, starY);
-        ctx.lineTo(
-        starX + trailLength * Math.cos(-Math.PI / 4),
-        starY + trailLength * Math.sin(-Math.PI / 4)
-        );
+        ctx.moveTo(x, y);
+        ctx.lineTo(trailX, trailY);
         ctx.stroke();
+        ctx.restore();
 
-        // Draw star (circle)
-        ctx.shadowBlur = 5;
-        ctx.shadowColor = "rgba(122, 194, 184, 0.6)";
+        // Head (glowing)
+        ctx.save();
+        ctx.globalAlpha = alpha;
+        ctx.shadowBlur = 18;
+        ctx.shadowColor = meteor.color;
         ctx.beginPath();
-        ctx.arc(starX, starY, radius, 0, 2 * Math.PI);
-        ctx.fillStyle = "white";
+        ctx.arc(x, y, meteor.radius * 1.5, 0, 2 * Math.PI);
+        ctx.fillStyle = "#fff";
         ctx.fill();
-
-        // Reset
-        ctx.shadowBlur = 0;
-        ctx.globalAlpha = 1;
-    };
-
-    const animate = (
-        ctx: CanvasRenderingContext2D,
-        startTime: number,
-        x: number,
-        y: number,
-        radius: number
-    ) => {
-        const now = Date.now();
-        const elapsed = (now - startTime) / 1000;
-
-        if (elapsed < ANIMATION_TIME) {
-            shootingStar(ctx, x, y, radius, elapsed);
-            requestAnimationFrame(() => animate(ctx, startTime, x, y, radius));
-        }
+        ctx.restore();
     };
 
     useEffect(() => {
@@ -83,14 +84,53 @@ const MeteorShower = () => {
         const ctx = canvas.getContext("2d");
         if (!ctx) return;
 
-        intervalRef.current = setInterval(() => {
-            const x = CANVAS_WIDTH / 2;
-            const y = Math.floor(Math.random() * (CANVAS_HEIGHT / 2));
-            const radius = Math.round(Math.random() * 1) + 0.8;
-            animate(ctx, Date.now(), x, y, radius);
-        }, 4000);
+        let animationId: number;
 
-        return () => clearInterval(intervalRef.current!);
+        // Animate all meteors
+        const animate = () => {
+            ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+            const now = Date.now();
+            meteorsRef.current = meteorsRef.current.filter(meteor => {
+                const elapsed = (now - meteor.startTime) / 1000;
+                const progress = elapsed / meteor.duration;
+                if (progress > 1) return false;
+                drawMeteor(ctx, meteor, progress);
+                return true;
+            });
+            animationId = requestAnimationFrame(animate);
+        };
+
+        animate();
+
+        // Add new meteors at intervals
+        const interval = setInterval(() => {
+            // Start from random X at the right edge, random Y in the top 40%
+            const startX = CANVAS_WIDTH + 40;
+            const startY = Math.random() * CANVAS_HEIGHT * 0.4;
+            // End at random X in the left 20%, and further down (60-90% of canvas height)
+            const endX = Math.random() * CANVAS_WIDTH * 0.2 - 40;
+            const endY = startY + CANVAS_HEIGHT * (0.4 + Math.random() * 0.4);
+
+            const radius = Math.random() * 0.7 + 0.5;
+            const color = COLORS[Math.floor(Math.random() * COLORS.length)];
+            const duration = ANIMATION_TIME + Math.random() * 0.6;
+
+            meteorsRef.current.push({
+                startX,
+                startY,
+                endX,
+                endY,
+                radius,
+                color,
+                startTime: Date.now(),
+                duration
+            });
+        }, 2600);
+
+        return () => {
+            clearInterval(interval);
+            cancelAnimationFrame(animationId);
+        };
     }, []);
 
     return (
@@ -98,7 +138,7 @@ const MeteorShower = () => {
             ref={canvasRef}
             width={CANVAS_WIDTH}
             height={CANVAS_HEIGHT}
-            className="absolute top-0 left-0 w-screen h-full lg:h-screen z-[-10]"
+            className="absolute top-0 left-0 w-screen h-full lg:h-screen z-[-10] pointer-events-none"
         ></canvas>
     );
 };
