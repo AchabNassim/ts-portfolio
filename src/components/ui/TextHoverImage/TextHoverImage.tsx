@@ -4,9 +4,9 @@ import "./textHoverImage.css"
 interface TextHoverImageProps {
     text: string,
     src: string,
-    containerClass: string,
-    imgClass: string,
-    textClass: string
+    containerClass?: string,
+    imgClass?: string,
+    textClass?: string
 }
 
 const TextHoverImage : React.FC<TextHoverImageProps> = ({text, src, containerClass, imgClass, textClass}) => {
